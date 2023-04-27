@@ -5,6 +5,9 @@ url_lists=[]
 headers={
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.58',
 }
+def create_total_file():
+    if not os.path.exists('王者荣耀皮肤壁纸'):
+        os.mkdir('王者荣耀皮肤壁纸')
 def read_file():
     with open('names.txt', 'r') as f:
         for name in f:
@@ -32,8 +35,12 @@ def down_img():
             with open(file + '/' + str(index) + '.jpg', 'wb') as f:
                 f.write(re.content)
         total_index += 1
-read_file()
-down_img()
+def main():
+    create_total_file()
+    read_file()
+    down_img()
+if __name__=='__main__':
+    main()
 
 
 
